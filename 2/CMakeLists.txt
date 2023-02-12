@@ -1,0 +1,3 @@
+add_executable(Second 2.cpp)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/2)
