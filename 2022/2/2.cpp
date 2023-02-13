@@ -7,14 +7,14 @@
 #include <unordered_map>
 
 
-enum Shapes {
+enum class Shapes {
 	Rock = 1,
 	Paper = 2,
 	Scissors = 3
 };
 
 
-enum Results {
+enum class Results {
 	Lose = 0,
 	Draw = 3,
 	Win = 6
@@ -71,13 +71,16 @@ int calculatePointsForMovePartI(const std::pair<char, char>& move)
 	Shapes opponent = letters_to_moves[move.first];
 	Shapes player = letters_to_moves[move.second];
 
+	int result_points{ 0 };
+
 	if (winning_moves[player] == opponent)
-		return player + Results::Win;
+		result_points = static_cast<int>(Results::Win);
+	else if (player == opponent)
+		result_points = static_cast<int>(Results::Draw);
+	else
+		result_points = static_cast<int>(Results::Lose);
 
-	if (player == opponent)
-		return player + Results::Draw;
-
-	return player + Results::Lose;
+	return static_cast<int>(player) + result_points;
 }
 
 
@@ -90,23 +93,17 @@ int calculatePointsForMovePartII(const std::pair<char, char>& move)
 	int points_from_shape{ 0 };
 
 	if (result == Results::Lose)
-	{
-		points_from_shape = winning_moves[opponent];
-	}
+		points_from_shape = static_cast<int>(winning_moves[opponent]);
 	else if (result == Results::Draw)
-	{
-		points_from_shape = opponent;
-	}
+		points_from_shape = static_cast<int>(opponent);
 	else
-	{
-		points_from_shape = std::ranges::find_if(winning_moves,
+		points_from_shape = static_cast<int>(std::ranges::find_if(winning_moves,
 			[&opponent = opponent](auto& entry) {
 				return entry.second == opponent;
 			}
-		)->first;
-	}
+	)->first);
 
-	return points_from_shape + result;
+	return points_from_shape + static_cast<int>(result);
 }
 
 

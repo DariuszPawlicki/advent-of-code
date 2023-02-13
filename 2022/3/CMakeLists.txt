@@ -1,3 +1,3 @@
-add_executable(Second 2.cpp)
+add_executable(Third-2022 3.cpp)
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
