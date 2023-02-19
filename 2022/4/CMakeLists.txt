@@ -1,3 +1,3 @@
-add_executable(Fourth-2022 4.cpp)
- 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+include(${CMAKE_UTILS})
+
+create_task_executable(Fourth-2022 4.cpp)

@@ -1,7 +1,7 @@
-add_subdirectory(1)
+file(GLOB files_list ${CMAKE_CURRENT_SOURCE_DIR}/*)
 
-add_subdirectory(2)
-
-add_subdirectory(3)
-
-add_subdirectory(4)
+foreach(file ${files_list})
+	if (IS_DIRECTORY ${file})
+		add_subdirectory(${file})
+	endif()
+endforeach()
