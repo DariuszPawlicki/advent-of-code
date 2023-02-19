@@ -53,16 +53,8 @@ int main()
 {
 	auto pairs = parseData("./data.txt");
 
-	size_t overlapped_count_partI{ 0 };
-	size_t overlapped_count_partII{ 0 };
-	for (auto& pair : pairs)
-	{
-		overlapped_count_partI += areRangesFullyOverlappedPartI(pair);
-		overlapped_count_partII += areRangesOverlappedAtAllPartII(pair);
-	}
-
-	std::cout << std::format("Totally overlapped ranges count: {}\n", overlapped_count_partI);
-	std::cout << std::format("Partially overlapped ranges count: {}\n", overlapped_count_partII);
+	std::cout << std::format("Totally overlapped ranges count: {}\n", std::ranges::count_if(pairs, areRangesFullyOverlappedPartI));
+	std::cout << std::format("Partially overlapped ranges count: {}\n", std::ranges::count_if(pairs, areRangesOverlappedAtAllPartII));
 
 	return 0;
 }
