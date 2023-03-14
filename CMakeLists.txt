@@ -6,4 +6,10 @@ set(CMAKE_UTILS ${CMAKE_SOURCE_DIR}/cmake/utils.cmake)
 
 add_compile_options("/std:c++latest")
 
-add_subdirectory(2022)
+include(${CMAKE_UTILS})
+
+setup_gtest()
+
+enable_testing()
+
+add_subdirectory(2022) 
