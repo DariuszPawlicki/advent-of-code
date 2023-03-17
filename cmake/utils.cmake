@@ -6,8 +6,7 @@ function(create_task_executable TARGET_NAME SOURCE_FILE)
 	file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 endfunction()
 
-
-function(create_test TEST_NAME SOURCE_FILE)
+function(create_task_test TEST_NAME SOURCE_FILE)
 	add_executable(${TEST_NAME} ${SOURCE_FILE})
 
 	target_link_libraries(${TEST_NAME} PRIVATE gtest_main)
