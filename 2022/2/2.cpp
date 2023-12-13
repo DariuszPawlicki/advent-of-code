@@ -1,5 +1,6 @@
 ﻿#include <format>
 #include <memory>
+#include <string>
 #include <ranges>
 #include <utility>
 #include <fstream>

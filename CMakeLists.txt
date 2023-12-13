@@ -13,3 +13,4 @@ setup_gtest()
 enable_testing()
 
 add_subdirectory(2022) 
+add_subdirectory(2023)
