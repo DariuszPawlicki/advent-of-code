@@ -2,6 +2,7 @@ include(FetchContent)
 
 function(create_task_executable TARGET_NAME SOURCE_FILE)
 	add_executable(${TARGET_NAME} ${SOURCE_FILE})
+	target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/utils)
 
 	file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 endfunction()
