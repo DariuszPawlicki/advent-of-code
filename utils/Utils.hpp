@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <memory>
+#include <string>
 #include <filesystem>
 
 
@@ -21,12 +21,12 @@ protected:
 	Container parsed_data;
 };
 
-
 template<typename Container>
 Container parseData(const std::filesystem::path& filepath,
-					const std::unique_ptr<LineParser<Container>>& line_parser) {
+	const std::unique_ptr<LineParser<Container>>& line_parser) {
+
 	std::ifstream data{ filepath };
-	
+
 	std::string line;
 	while (std::getline(data, line)) {
 		line_parser->parseLine(line);
